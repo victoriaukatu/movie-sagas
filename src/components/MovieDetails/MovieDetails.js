@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 class MovieDetails extends Component {
+    handleBackToListClick = () => {
+        this.props.history.push('/'); 
+      }
 
     render() {
         return (
             <div>
-                <button>Back to List</button>
+                <button onClick={this.handleBackToListClick}>Back to List</button>
               <h2>{this.props.reduxState.detailsReducer.title}</h2>
                 {this.props.reduxState.detailsReducer.description}
             </div>
