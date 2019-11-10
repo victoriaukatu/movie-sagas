@@ -11,7 +11,7 @@ class MovieList extends Component {
             <div>
                 <h3>Top Movies That You Should Watch!</h3>
                 <div>
-                {this.props.reduxState.movies.map( (movie) => <div>{this.props.reduxState.movie.title}{this.props.reduxState.movie.poster}{this.props.reduxState.movie.description}</div>)}
+                {this.props.reduxState.movies.map( (movie) => <div>{movie.title}<img src={movie.poster} alt="movie_image"/>{movie.description}</div>)}
                 </div>
 
                 <pre>{JSON.stringify(this.props.reduxState.plantList)}</pre>
