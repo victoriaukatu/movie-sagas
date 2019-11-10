@@ -11,6 +11,7 @@ class MovieDetails extends Component {
         return (
             <div>
                 <button onClick={this.handleBackToListClick}>Back to List</button>
+                <button>Edit</button>
               <h2>{this.props.reduxState.detailsReducer.title}</h2>
                 {this.props.reduxState.detailsReducer.description}
             </div>
