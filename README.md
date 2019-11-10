@@ -7,3 +7,5 @@
 Your project description goes here. What problem did you solve? How did you solve it?
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/github-finalization-assignment).
+
+dispatch -> saga -> server -> database -> server -> reducer -> map to DOM
