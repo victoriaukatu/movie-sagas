@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {HashRouter as Router, Route, Link} from 'react-router-dom';
+import {HashRouter as Router, Route } from 'react-router-dom';
 import MovieList from '../MovieList/MovieList';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
@@ -10,7 +10,6 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-        <MovieList />
         <Route exact path="/" component={MovieList}/>
         <Route path="/details" component={MovieDetails}/>
       </div>

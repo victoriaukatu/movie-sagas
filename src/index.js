@@ -15,7 +15,6 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMoviesSaga);
-    yield takeEvery('GET_DETAILS', getDetailsSaga);
 }
 
 // GET saga here
@@ -27,18 +26,6 @@ function* getMoviesSaga() {
         yield put({type: 'SET_MOVIES', payload: movieResponse.data});
     } catch (error) {
         console.log('There was an error fetching movies!', error);
-    }
-  }
-
-// This saga will handle the details 
-function* getDetailsSaga(action) {
-    try {
-        const detailsResponse = yield axios.get(`/movies/details/${action.payload}`);
-        console.log(detailsResponse.data);
-        
-        yield put({type: 'GET_DETAILS', payload: detailsResponse.data});
-    } catch (error) {
-        console.log('There was an error fetching the movie details!', error);
     }
   }
 
@@ -58,8 +45,8 @@ const movies = (state = [], action) => {
 // Used for managing the details page
 const detailsReducer = (state = {}, action) => {
     switch (action.type) {
-      case 'GET_DETAILS':
-      return action.payload
+      case 'SET_DETAILS':
+      return action.payload;
       default:
         return state;
     }
