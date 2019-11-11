@@ -12,11 +12,6 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-// Create the rootSaga generator function
-function* rootSaga() {
-    yield takeEvery('GET_MOVIES', getMoviesSaga);
-    yield takeEvery('GET_GENRES', getGenresSaga); //
-}
 
 // GET movies saga here
 function* getMoviesSaga() {
@@ -86,6 +81,12 @@ const storeInstance = createStore(
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
 );
+
+// Create the rootSaga generator function
+function* rootSaga() {
+    yield takeEvery('GET_MOVIES', getMoviesSaga);
+    yield takeEvery('GET_GENRES', getGenresSaga); //
+}
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
