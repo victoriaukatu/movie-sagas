@@ -31,9 +31,10 @@ function* getMoviesSaga() {
   }
 
  // GET genres saga here
- function* getGenresSaga() {
+ function* getGenresSaga(action) {
     try {
-        const genreResponse = yield axios.get('/genres');
+        console.log(action.payload);
+        const genreResponse = yield axios.post('/movies/genres', action.payload.id);
         console.log(genreResponse.data);
         
         yield put({type: 'SET_GENRES', payload: genreResponse.data});
@@ -66,7 +67,7 @@ const detailsReducer = (state = {}, action) => {
   };
 
 // Used to store the movie genres
-const genres = (state = [], action) => {
+const genres = (state = {}, action) => {
     switch (action.type) {
         case 'SET_GENRES':
             return action.payload;

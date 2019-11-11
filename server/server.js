@@ -12,6 +12,7 @@ const movieRouter = require('./routes/movies.router');
 app.use('/movies', movieRouter);
 
 
+
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
     console.log('Listening on port: ', port);

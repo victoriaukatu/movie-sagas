@@ -26,10 +26,7 @@ class MovieEdit extends Component {
 
     saveUpdate = () => {
         console.log('The save button was clicked!')
-        // this.props.dispatch({ type: 'UPDATE_DETAILS', payload: this.state.updatedMovie })
-        // this.setState({
-        //     mode: true
-        // })
+        this.props.dispatch({ type: 'UPDATE_DETAILS', payload: this.state.updatedMovie })
     }
 
     render() {

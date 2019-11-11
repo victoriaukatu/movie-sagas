@@ -23,7 +23,7 @@ getMovieDetails = (movie) => {
                 {this.props.reduxState.movies.map( (movie) => <div>{movie.title}<img onClick={() => this.getMovieDetails(movie)} key={movie.id} src={movie.poster} alt="movie_image"/>{movie.description}</div>)}
                 </div>
 
-                <pre>{JSON.stringify(this.props.reduxState.plantList)}</pre>
+                <pre>{JSON.stringify(this.props.reduxState.movies)}</pre>
             </div>
         );
     }

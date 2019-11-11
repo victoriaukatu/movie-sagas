@@ -5,7 +5,7 @@ const router = express.Router();
 
 // route to get movies from the database
 router.get('/', (req, res) => {
-    const queryText = 'SELECT "movies"."title", "movies"."poster", "movies"."description" FROM movies';
+    const queryText = 'SELECT "movies"."id", "movies"."title", "movies"."poster", "movies"."description" FROM movies';
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((error) => {
@@ -15,12 +15,11 @@ router.get('/', (req, res) => {
   });
 
 // route to get genres from the database
-
-router.get('/genres', (req, res) => {
-    const queryText = `SELECT "name" FROM "genres"
-                        JOIN "movie_genres" ON genres.genre_id = movie_genres.id
+router.post('/genres', (req, res) => {
+    const queryText = `SELECT "genres"."name" FROM genres
+                        JOIN "movies_genres" ON "genres"."genres_id" = "movies_genres"."genres_id"
                         JOIN "movies" ON "movies"."id"="movies_genres"."id"
-                            WHERE movies.id=${req.query.id};`;
+                            WHERE movies.id=${req.body.id};`;
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })
       .catch((error) => {
