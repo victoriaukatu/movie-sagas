@@ -15,9 +15,10 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMoviesSaga);
+    yield takeEvery('GET_GENRES', getGenresSaga); //
 }
 
-// GET saga here
+// GET movies saga here
 function* getMoviesSaga() {
     try {
         const movieResponse = yield axios.get('/movies');
@@ -28,6 +29,18 @@ function* getMoviesSaga() {
         console.log('There was an error fetching movies!', error);
     }
   }
+
+ // GET genres saga here
+ function* getGenresSaga() {
+    try {
+        const genreResponse = yield axios.get('/genres');
+        console.log(genreResponse.data);
+        
+        yield put({type: 'SET_GENRES', payload: genreResponse.data});
+    } catch (error) {
+        console.log('There was an error fetching the genres!', error);
+    }
+  } 
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

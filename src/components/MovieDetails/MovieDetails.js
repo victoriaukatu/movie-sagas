@@ -24,6 +24,7 @@ class MovieDetails extends Component {
                 <button onClick={this.handleBackToListClick}>Back to List</button>
                 <button onClick={this.switchToEdit}>Edit</button>
                 <h2>{this.props.reduxState.detailsReducer.title}</h2>
+                {this.props.reduxState.genres.name}
                 {this.props.reduxState.detailsReducer.description}
             </div>
         )

@@ -4,7 +4,8 @@ import {withRouter} from 'react-router-dom';
 
 class MovieList extends Component {
     componentDidMount() {
-        this.props.dispatch({type: 'GET_MOVIES'})
+        this.props.dispatch({type: 'GET_MOVIES'});
+        this.props.dispatch({type: 'GET_GENRES'}); 
     }
 
 getMovieDetails = (movie) => {

@@ -24,19 +24,20 @@ class MovieEdit extends Component {
         })
     }
 
-    // saveUpdate = () => {
-    //     this.props.dispatch({ type: 'UPDATE_DETAILS', payload: this.state.updatedMovie })
-    //     this.setState({
-    //         mode: true
-    //     })
-    // }
+    saveUpdate = () => {
+        console.log('The save button was clicked!')
+        // this.props.dispatch({ type: 'UPDATE_DETAILS', payload: this.state.updatedMovie })
+        // this.setState({
+        //     mode: true
+        // })
+    }
 
     render() {
         return(
             <div>
               <>
                         <button onClick={this.handleBackToDetailsClick}>Cancel</button>
-                        <button>Save</button>
+                        <button onClick={this.saveUpdate}>Save</button>
                         <br />
                         <input type="text" value={this.state.updatedMovie.title} onChange={this.handleChange('title')} />
                         <br />
